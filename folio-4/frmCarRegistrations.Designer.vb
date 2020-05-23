@@ -45,11 +45,12 @@ Partial Class frmCarRegistrations
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.lblFileFullName = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnLoad
         '
-        Me.btnLoad.Location = New System.Drawing.Point(344, 29)
+        Me.btnLoad.Location = New System.Drawing.Point(69, 23)
         Me.btnLoad.Name = "btnLoad"
         Me.btnLoad.Size = New System.Drawing.Size(102, 32)
         Me.btnLoad.TabIndex = 0
@@ -214,11 +215,20 @@ Partial Class frmCarRegistrations
         Me.Label6.TabIndex = 12
         Me.Label6.Text = "Model"
         '
+        'lblFileFullName
+        '
+        Me.lblFileFullName.AutoSize = True
+        Me.lblFileFullName.Location = New System.Drawing.Point(180, 29)
+        Me.lblFileFullName.Name = "lblFileFullName"
+        Me.lblFileFullName.Size = New System.Drawing.Size(0, 30)
+        Me.lblFileFullName.TabIndex = 16
+        '
         'frmCarRegistrations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(805, 595)
+        Me.Controls.Add(Me.lblFileFullName)
         Me.Controls.Add(Me.lblCarsFound)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.Label5)
@@ -266,4 +276,5 @@ Partial Class frmCarRegistrations
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents lblFileFullName As Label
 End Class

@@ -28,6 +28,8 @@ Public Class frmCarRegistrations
                 cars.Add(car)
             End While
             fileReader.Close()
+            lblFileFullName.Text = dlgBrowseFiles.FileName
+
             _cars = cars
             displayCars(cars)
         End If
