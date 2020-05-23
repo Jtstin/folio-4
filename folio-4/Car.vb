@@ -30,11 +30,11 @@
     End Property
 
     Private _year As String
-    Public Property Year() As String
+    Public Property Year() As Int16
         Get
             Return _year
         End Get
-        Set(value As String)
+        Set(value As Int16)
             _year = value
         End Set
     End Property
@@ -50,11 +50,11 @@
     End Property
 
     Private _cost As String
-    Public Property Cost() As String
+    Public Property Cost() As Decimal
         Get
             Return _cost
         End Get
-        Set(value As String)
+        Set(value As Decimal)
             _cost = value
         End Set
     End Property
