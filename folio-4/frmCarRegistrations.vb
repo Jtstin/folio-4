@@ -35,7 +35,7 @@ Public Class frmCarRegistrations
         End If
     End Sub
 
-    Private Function displayCars(cars As List(Of Car)) As Int16
+    Private Sub displayCars(cars As List(Of Car))
 
         lstCarReg.Items.Clear()
         Dim itemIndex As Int32 = 0
@@ -48,8 +48,7 @@ Public Class frmCarRegistrations
             lstCarReg.Items(itemIndex).SubItems.Add(car.Cost)
             itemIndex = itemIndex + 1
         Next
-        Return 0
-    End Function
+    End Sub
 
     Private Function satisfyFilters(car As Car, searchFilters As Dictionary(Of String, String)) As Boolean
         For Each filter As KeyValuePair(Of String, String) In searchFilters
@@ -157,5 +156,61 @@ Public Class frmCarRegistrations
 
         Return searchFilters
     End Function
+
+    'Private Sub Button1_Click(sender As Object, e As EventArgs)
+    'Dim I, C As Integer
+    'Dim Last As Integer = txtSecret.Text.Length - 1               'last character
+    'Dim ThisChar As Char
+    'Dim encryptedText = ""                                  'start with nothing
+    'For I = 0 To Last
+    '       ThisChar = txtSecret.Text.Chars(I)                        'one character
+    'If ThisChar <> " " Then                                     'not spacebar character
+    '           C = Asc(ThisChar)                                       'calculate new ASCII value
+    '          C = C Xor 8                           'whichever number was chosen
+    '         ThisChar = Chr(C)                                       'get encrypted letter
+    'End If
+    '       encryptedText += ThisChar                       'add the character
+    'Next
+    '   txtSecret.Text = encryptedText
+    'End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Dim car As Car = New Car
+        If String.IsNullOrEmpty(txtReg.Text) Or String.IsNullOrEmpty(txtMake.Text) Or String.IsNullOrEmpty(txtModel.Text) Or String.IsNullOrEmpty(txtYear.Text) Or String.IsNullOrEmpty(txtOdo.Text) Or String.IsNullOrEmpty(txtCost.Text) Then
+            MessageBox.Show("All boxes must be filled")
+            Return
+        End If
+        Dim year As Integer
+        Dim odometer As Integer
+        Dim cost As Integer
+        If Not Integer.TryParse(txtYear.Text, year) Or Not Integer.TryParse(txtOdo.Text, odometer) Or Not Integer.TryParse(txtCost.Text, cost) Then
+            MessageBox.Show("year, odometer, cost must be a number")
+            Return
+        End If
+        car.Registration = txtReg.Text
+        car.Make = txtMake.Text
+        car.Model = txtModel.Text
+        car.Year = txtYear.Text
+        car.Odometer = txtOdo.Text
+        car.Cost = txtCost.Text
+        _cars.Add(car)
+        displayCars(_cars)
+    End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        dlgSave.InitialDirectory = FileSystem.CurDir
+        dlgSave.FileName = "carRegistration.txt"
+        Dim dlgResult = dlgSave.ShowDialog()
+        If dlgResult = DialogResult.OK Then
+            Dim fileWriter As System.IO.StreamWriter
+            fileWriter = My.Computer.FileSystem.OpenTextFileWriter(dlgSave.FileName, False)
+            For Each car As Car In _cars
+                Dim line As String
+                line = car.Registration + "," + car.Make + "," + car.Model + "," + Convert.ToString(car.Year) + "," + Convert.ToString(car.Odometer) + "," + Convert.ToString(car.Cost)
+                fileWriter.WriteLine(line)
+            Next
+            fileWriter.Close()
+        End If
+    End Sub
 End Class
 
