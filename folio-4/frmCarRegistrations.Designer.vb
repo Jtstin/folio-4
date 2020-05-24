@@ -53,10 +53,10 @@ Partial Class frmCarRegistrations
         '
         'btnLoad
         '
-        Me.btnLoad.Location = New System.Drawing.Point(46, 15)
-        Me.btnLoad.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnLoad.Location = New System.Drawing.Point(416, 15)
+        Me.btnLoad.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLoad.Name = "btnLoad"
-        Me.btnLoad.Size = New System.Drawing.Size(68, 21)
+        Me.btnLoad.Size = New System.Drawing.Size(75, 21)
         Me.btnLoad.TabIndex = 0
         Me.btnLoad.Text = "Load"
         Me.btnLoad.UseVisualStyleBackColor = True
@@ -70,10 +70,10 @@ Partial Class frmCarRegistrations
         Me.lstCarReg.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Registration, Me.Make, Me.Model, Me.Year, Me.Odometer, Me.Cost})
         Me.lstCarReg.GridLines = True
         Me.lstCarReg.HideSelection = False
-        Me.lstCarReg.Location = New System.Drawing.Point(46, 44)
-        Me.lstCarReg.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.lstCarReg.Location = New System.Drawing.Point(30, 42)
+        Me.lstCarReg.Margin = New System.Windows.Forms.Padding(2)
         Me.lstCarReg.Name = "lstCarReg"
-        Me.lstCarReg.Size = New System.Drawing.Size(445, 183)
+        Me.lstCarReg.Size = New System.Drawing.Size(461, 183)
         Me.lstCarReg.TabIndex = 1
         Me.lstCarReg.UseCompatibleStateImageBehavior = False
         Me.lstCarReg.View = System.Windows.Forms.View.Details
@@ -108,48 +108,48 @@ Partial Class frmCarRegistrations
         '
         'txtReg
         '
-        Me.txtReg.Location = New System.Drawing.Point(91, 264)
-        Me.txtReg.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtReg.Location = New System.Drawing.Point(91, 296)
+        Me.txtReg.Margin = New System.Windows.Forms.Padding(2)
         Me.txtReg.Name = "txtReg"
         Me.txtReg.Size = New System.Drawing.Size(68, 20)
         Me.txtReg.TabIndex = 2
         '
         'txtMake
         '
-        Me.txtMake.Location = New System.Drawing.Point(235, 264)
-        Me.txtMake.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtMake.Location = New System.Drawing.Point(247, 297)
+        Me.txtMake.Margin = New System.Windows.Forms.Padding(2)
         Me.txtMake.Name = "txtMake"
         Me.txtMake.Size = New System.Drawing.Size(68, 20)
         Me.txtMake.TabIndex = 3
         '
         'txtYear
         '
-        Me.txtYear.Location = New System.Drawing.Point(91, 312)
-        Me.txtYear.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtYear.Location = New System.Drawing.Point(91, 344)
+        Me.txtYear.Margin = New System.Windows.Forms.Padding(2)
         Me.txtYear.Name = "txtYear"
         Me.txtYear.Size = New System.Drawing.Size(68, 20)
         Me.txtYear.TabIndex = 4
         '
         'txtOdo
         '
-        Me.txtOdo.Location = New System.Drawing.Point(235, 312)
-        Me.txtOdo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtOdo.Location = New System.Drawing.Point(247, 341)
+        Me.txtOdo.Margin = New System.Windows.Forms.Padding(2)
         Me.txtOdo.Name = "txtOdo"
         Me.txtOdo.Size = New System.Drawing.Size(68, 20)
         Me.txtOdo.TabIndex = 5
         '
         'txtCost
         '
-        Me.txtCost.Location = New System.Drawing.Point(376, 312)
-        Me.txtCost.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtCost.Location = New System.Drawing.Point(423, 341)
+        Me.txtCost.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCost.Name = "txtCost"
         Me.txtCost.Size = New System.Drawing.Size(68, 20)
         Me.txtCost.TabIndex = 6
         '
         'txtModel
         '
-        Me.txtModel.Location = New System.Drawing.Point(376, 264)
-        Me.txtModel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtModel.Location = New System.Drawing.Point(423, 300)
+        Me.txtModel.Margin = New System.Windows.Forms.Padding(2)
         Me.txtModel.Name = "txtModel"
         Me.txtModel.Size = New System.Drawing.Size(68, 20)
         Me.txtModel.TabIndex = 7
@@ -157,7 +157,7 @@ Partial Class frmCarRegistrations
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(177, 316)
+        Me.Label3.Location = New System.Drawing.Point(190, 348)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
@@ -167,7 +167,7 @@ Partial Class frmCarRegistrations
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(181, 268)
+        Me.Label4.Location = New System.Drawing.Point(209, 299)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(34, 13)
@@ -177,7 +177,7 @@ Partial Class frmCarRegistrations
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(324, 316)
+        Me.Label5.Location = New System.Drawing.Point(373, 348)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(28, 13)
@@ -186,8 +186,8 @@ Partial Class frmCarRegistrations
         '
         'btnSearch
         '
-        Me.btnSearch.Location = New System.Drawing.Point(91, 353)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSearch.Location = New System.Drawing.Point(416, 399)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(68, 23)
         Me.btnSearch.TabIndex = 14
@@ -197,7 +197,7 @@ Partial Class frmCarRegistrations
         'lblCarsFound
         '
         Me.lblCarsFound.AutoSize = True
-        Me.lblCarsFound.Location = New System.Drawing.Point(429, 227)
+        Me.lblCarsFound.Location = New System.Drawing.Point(50, 227)
         Me.lblCarsFound.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblCarsFound.Name = "lblCarsFound"
         Me.lblCarsFound.Size = New System.Drawing.Size(0, 13)
@@ -207,7 +207,7 @@ Partial Class frmCarRegistrations
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(33, 316)
+        Me.Label2.Location = New System.Drawing.Point(33, 348)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(29, 13)
@@ -217,7 +217,7 @@ Partial Class frmCarRegistrations
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(27, 268)
+        Me.Label1.Location = New System.Drawing.Point(27, 300)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(63, 13)
@@ -227,7 +227,7 @@ Partial Class frmCarRegistrations
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(324, 268)
+        Me.Label6.Location = New System.Drawing.Point(373, 300)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(36, 13)
@@ -245,7 +245,7 @@ Partial Class frmCarRegistrations
         '
         'btnAdd
         '
-        Me.btnAdd.Location = New System.Drawing.Point(369, 353)
+        Me.btnAdd.Location = New System.Drawing.Point(334, 399)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(75, 23)
         Me.btnAdd.TabIndex = 17
@@ -254,7 +254,7 @@ Partial Class frmCarRegistrations
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(416, 9)
+        Me.btnSave.Location = New System.Drawing.Point(416, 243)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(75, 23)
         Me.btnSave.TabIndex = 18
@@ -265,7 +265,7 @@ Partial Class frmCarRegistrations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(537, 387)
+        Me.ClientSize = New System.Drawing.Size(526, 444)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.lblFileFullName)
@@ -285,10 +285,10 @@ Partial Class frmCarRegistrations
         Me.Controls.Add(Me.txtReg)
         Me.Controls.Add(Me.lstCarReg)
         Me.Controls.Add(Me.btnLoad)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "frmCarRegistrations"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Car Registration"
+        Me.Text = "Shiny Cars"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

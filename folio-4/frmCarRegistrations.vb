@@ -15,9 +15,12 @@ Public Class frmCarRegistrations
             fileReader = My.Computer.FileSystem.OpenTextFileReader(dlgBrowseFiles.FileName)
             Dim line As String
             Dim cars = New List(Of Car) 'A list to collect all cars from file
-            While Not fileReader.EndOfStream
-                line = fileReader.ReadLine()
-                line = toggleEncryption(line)
+            Dim encryptedFileContent = fileReader.ReadToEnd()
+            fileReader.Close()
+            Dim decryptedFileContent As String = toggleEncryption(encryptedFileContent)
+
+            Dim lines = decryptedFileContent.Split(vbCrLf)
+            For Each line In lines
                 Dim row = line.Split(",")
                 Dim car As Car = New Car
                 car.Registration = row(0).Trim()
@@ -27,10 +30,8 @@ Public Class frmCarRegistrations
                 car.Odometer = row(4).Trim()
                 car.Cost = row(5).Trim()
                 cars.Add(car)
-            End While
-            fileReader.Close()
-            lblFileFullName.Text = dlgBrowseFiles.FileName
-
+            Next
+            Text = "Shiny cars : " + dlgBrowseFiles.FileName
             _cars = cars
             displayCars(cars)
         End If
@@ -188,20 +189,25 @@ Public Class frmCarRegistrations
         dlgSave.FileName = "carRegistration.txt"
         Dim dlgResult = dlgSave.ShowDialog()
         If dlgResult = DialogResult.OK Then
-            Dim fileWriter As System.IO.StreamWriter
-            fileWriter = My.Computer.FileSystem.OpenTextFileWriter(dlgSave.FileName, False)
+            Dim newFileContent As String = ""
             For Each car As Car In _cars
                 Dim line As String
                 line = car.Registration + "," + car.Make + "," + car.Model + "," + Convert.ToString(car.Year) + "," + Convert.ToString(car.Odometer) + "," + Convert.ToString(car.Cost)
-                fileWriter.WriteLine(toggleEncryption(line))
+                If Not String.IsNullOrEmpty(newFileContent) Then
+                    newFileContent = newFileContent + vbCrLf
+                End If
+                newFileContent = newFileContent + line
             Next
+            Dim fileWriter As System.IO.StreamWriter
+            fileWriter = My.Computer.FileSystem.OpenTextFileWriter(dlgSave.FileName, False)
+            fileWriter.Write((toggleEncryption(newFileContent)))
             fileWriter.Close()
         End If
     End Sub
 
     Private Function toggleEncryption(text As String) As String
         Dim processedText As String = ""
-        Dim key As Integer = 8 ' must be within 0-255
+        Dim key As Integer = 67 ' must be within 0-255
         For index As Integer = 0 To text.Length - 1
             Dim character As Char = text.Chars(index)
             If character <> " " Then
