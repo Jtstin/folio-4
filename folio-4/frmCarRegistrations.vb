@@ -17,6 +17,7 @@ Public Class frmCarRegistrations
             Dim cars = New List(Of Car) 'A list to collect all cars from file
             While Not fileReader.EndOfStream
                 line = fileReader.ReadLine()
+                line = toggleEncryption(line)
                 Dim row = line.Split(",")
                 Dim car As Car = New Car
                 car.Registration = row(0).Trim()
@@ -157,22 +158,7 @@ Public Class frmCarRegistrations
         Return searchFilters
     End Function
 
-    'Private Sub Button1_Click(sender As Object, e As EventArgs)
-    'Dim I, C As Integer
-    'Dim Last As Integer = txtSecret.Text.Length - 1               'last character
-    'Dim ThisChar As Char
-    'Dim encryptedText = ""                                  'start with nothing
-    'For I = 0 To Last
-    '       ThisChar = txtSecret.Text.Chars(I)                        'one character
-    'If ThisChar <> " " Then                                     'not spacebar character
-    '           C = Asc(ThisChar)                                       'calculate new ASCII value
-    '          C = C Xor 8                           'whichever number was chosen
-    '         ThisChar = Chr(C)                                       'get encrypted letter
-    'End If
-    '       encryptedText += ThisChar                       'add the character
-    'Next
-    '   txtSecret.Text = encryptedText
-    'End Sub
+
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Dim car As Car = New Car
@@ -207,10 +193,25 @@ Public Class frmCarRegistrations
             For Each car As Car In _cars
                 Dim line As String
                 line = car.Registration + "," + car.Make + "," + car.Model + "," + Convert.ToString(car.Year) + "," + Convert.ToString(car.Odometer) + "," + Convert.ToString(car.Cost)
-                fileWriter.WriteLine(line)
+                fileWriter.WriteLine(toggleEncryption(line))
             Next
             fileWriter.Close()
         End If
     End Sub
+
+    Private Function toggleEncryption(text As String) As String
+        Dim processedText As String = ""
+        Dim key As Integer = 8 ' must be within 0-255
+        For index As Integer = 0 To text.Length - 1
+            Dim character As Char = text.Chars(index)
+            If character <> " " Then
+                Dim asciiNumber As Integer = Asc(character)
+                Dim xoredNumber As Integer = asciiNumber Xor key
+                character = Chr(xoredNumber)
+            End If
+            processedText = processedText + character
+        Next
+        Return processedText
+    End Function
 End Class
 
